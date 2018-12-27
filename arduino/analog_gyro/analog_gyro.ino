@@ -1,6 +1,4 @@
 #define GYRO_SENSITIVITY 0.0033;
-//LISY300AL için 3.3mV/derece/saniye
-//(yani kısaca her derece değişim için 0.0033V değişim olur)
 
 #define ANALOG_SENSITIVITY 0.0047
 // Arduino USB'Ye baglandıgında 4.575 V ile
@@ -14,7 +12,6 @@ unsigned long timetook = 0; //sample time taken
 unsigned long lasttook = 0; //last sample time
 
 void setup(){
-
   Serial.begin(9600);
 }
 

@@ -18,18 +18,11 @@ void setup(){
  
   Serial.println("starting up L3GD20");
   setupL3GD20(2000); // Configure L3GD20  - 250, 500 or 2000 deg/sec
-  pinMode(2, OUTPUT); // X +Ve value
-  pinMode(3, OUTPUT); // X -Ve value
-  pinMode(4, OUTPUT); // Y +Ve value
-  pinMode(5, OUTPUT); // Y -Ve value
-  pinMode(6, OUTPUT); // Z +Ve value
-  pinMode(7, OUTPUT); // Z -Ve value
- 
   delay(100); //wait for the sensor to be ready
 }
  
 void loop(){
-   getGyroValues();  // This will update x, y, and z with new values
+  getGyroValues();  // This will update x, y, and z with new values
  
   Serial.print("X:");
   Serial.print(x);
@@ -40,61 +33,7 @@ void loop(){
   Serial.print(" Z:");
   Serial.println(z);
  
-  delay(100); //Just here to slow down the serial to make it more readable
- 
-  //*********LED Functions************//
- 
-//*********** X- position LEDs*********// 
-  if (x >= 1000)
-  {
-   
-    digitalWrite(2, HIGH);
-    digitalWrite(3, LOW);
-  }
-   else if (x <= -1000)
-   {
-     digitalWrite(3, HIGH);
-     digitalWrite(2, LOW);
-   }
-   else
-   {
-       digitalWrite(2, LOW);
-       digitalWrite(3, LOW);
-   }
-//*********** Y- position LEDs*********// 
-  if (y >= 1000)
-  {
-    digitalWrite(4, HIGH);
-    digitalWrite(5,LOW);
-  }
-  else if (y <= -1000)
-  {
-    digitalWrite(5, HIGH);
-    digitalWrite(4, LOW);
-  }
-   else
-   {
-       digitalWrite(4, LOW);
-       digitalWrite(5, LOW);
-   }
-//*********** Z- position LEDs*********// 
-  if (z >= 1000)
-   {
-     digitalWrite(6, HIGH);
-     digitalWrite(7, LOW);
-   }
-   else if (z <= -1000)
-   {
-     digitalWrite(7, HIGH);
-     digitalWrite(6, LOW);
-   }
-   else
-   {
-       digitalWrite(7, LOW);
-       digitalWrite(6, LOW);
-   }
-//************ LED funcitons ENDs****************//
- 
+  delay(100); //Just here to slow down the serial to make it more readable 
 }
  
 void getGyroValues(){
