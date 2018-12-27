@@ -2,18 +2,15 @@
 
 MPU9250_DMP imu;
 
-void setup() 
-{
+void setup() {
   Serial.begin(9600);
 
   /*
    * Setup mpu9255
    */
   
-  if (imu.begin() != INV_SUCCESS)
-  {
-    while (1)
-    {
+  if (imu.begin() != INV_SUCCESS) {
+    while (1) {
       Serial.println("Unable to communicate with MPU-9250");
       Serial.println("Check connections, and try again.");
       Serial.println();
@@ -25,20 +22,10 @@ void setup()
   imu.setAccelFSR(2); 
   imu.setLPF(5);
   imu.setCompassSampleRate(10);
-
-  /*
-   * Setup analog gyro
-   */
-
-  //pinMode(AO, OUTPUT);
 }
 
-void loop() 
-{
-//  Serial.println("hi");
-  
-  if ( imu.dataReady() )
-  {
+void loop() {
+  if (imu.dataReady()) {
   
     delay(1500);
     imu.update(UPDATE_ACCEL | UPDATE_GYRO | UPDATE_COMPASS);
@@ -51,8 +38,7 @@ void loop()
   Serial.println();
 }
 
-void printIMUData(void)
-{  
+void printIMUData(void) {  
   float accelX = imu.calcAccel(imu.ax);
   float accelY = imu.calcAccel(imu.ay);
   float accelZ = imu.calcAccel(imu.az);
