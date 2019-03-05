@@ -1,4 +1,4 @@
-#define GYRO_SENSITIVITY 0.0033; //0.0033
+#define GYRO_SENSITIVITY 0.0033 //0.0033
 
 #define ANALOG_SENSITIVITY 0.0047 //0.0047
 
@@ -23,13 +23,15 @@ void loop(){
 
   float time = (float(timetook)-float(lasttook))/1000.0;                             
 
+  Serial.println(time);
+
   float degchange = change * time *  ANALOG_SENSITIVITY / GYRO_SENSITIVITY ;
 
   position = position+degchange;
 
   position = makecardinal(position);
 
-  Serial.println(position);
+  //Serial.println(position);
 
   change=0;
 

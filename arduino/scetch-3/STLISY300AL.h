@@ -1,6 +1,8 @@
 #ifndef _STLISY300AL_H_
 #define _STLISY300AL_H_
 
+#include <Arduino.h>
+
 #define GYRO_SENSITIVITY   0.0033
 #define ANALOG_SENSITIVITY 0.0047
 
@@ -13,6 +15,7 @@ public:
 	LISY300AL(int pin);
 	void setupLISY300AL();
 	float getPosition();
+  void clear();
 };
 
 #endif /*_STLISY300AL_H_*/
