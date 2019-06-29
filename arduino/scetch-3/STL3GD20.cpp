@@ -18,9 +18,9 @@ int L3GD20::readRegister(int deviceAddress, unsigned char address){
     return value;
 }
 
-L3GD20::L3GD20(unsigned Address = 0x6B) {
+L3GD20::L3GD20(/*unsigned Address = 0x6B*/) {
 	Wire.begin();
-	L3GD20_Address = Address;
+	//L3GD20_Address = Address;
 	x = y = z = 0;
 }
 

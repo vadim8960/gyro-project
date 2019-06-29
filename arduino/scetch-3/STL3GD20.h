@@ -23,7 +23,7 @@ class L3GD20 {
 	void writeRegister(int deviceAddress, unsigned char address, unsigned char val);
 	int readRegister(int deviceAddress, unsigned char address);
 public:
-	L3GD20(unsigned Address = 0x6B);
+	L3GD20(/*unsigned Address = 0x6B*/);
 	void setupL3GD20(unsigned scale);
 	void updateData();
 	int getX();
